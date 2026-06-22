@@ -8,6 +8,17 @@ const score1 = document.getElementById('score--1'); // Carefull, without using t
 const current0El = document.getElementById('current--0');
 const current1El = document.getElementById('current--1');
 
+const modalOverlay = document.querySelector('.modal-overlay');
+const btnModalClose = document.querySelector('.modal__close');
+const btnModalPlay = document.querySelector('.modal__play');
+
+const closeModal = () => modalOverlay.classList.add('hidden');
+btnModalClose.addEventListener('click', closeModal);
+btnModalPlay.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', e => {
+  if (e.target === modalOverlay) closeModal();
+});
+
 const diceEl = document.querySelector('.dice');
 const btnNewEl = document.querySelector('.btn--new');
 const btnRollEl = document.querySelector('.btn--roll');

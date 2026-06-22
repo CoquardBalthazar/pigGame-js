@@ -9,6 +9,22 @@
   </head>
 
   <body>
+    <!-- Rules Modal -->
+    <div class="modal-overlay">
+      <div class="modal">
+        <button class="modal__close">&times;</button>
+        <h2 class="modal__title">How to Play</h2>
+        <ul class="modal__rules">
+          <li>On each turn, a player rolls the dice as many times as they wish.</li>
+          <li>Each roll adds to their <strong>current score</strong>.</li>
+          <li>Roll a <strong>1</strong> and you lose your current score — turn passes to the other player.</li>
+          <li>Choose <strong>Hold</strong> to bank your current score into your total.</li>
+          <li>First player to reach <strong>100 points</strong> wins!</li>
+        </ul>
+        <button class="modal__play btn">🎮 Let's Play</button>
+      </div>
+    </div>
+
     <main>
       <section class="player player--0 player--active">
         <h2 class="name" id="name--0">Player 1</h2>

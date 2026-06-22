@@ -187,7 +187,7 @@ main {
 }
 
 .hidden {
-  display: none; /*hidden class to hide an element or show a element */
+  display: none !important;
 }
 
 .player--winner {
@@ -196,7 +196,194 @@ main {
 
 .player--winner .name {
   font-weight: 700;
-  font-size:6rem;
-  /*color: #c7365f;*/
+  font-size: 6rem;
   color: white;
+}
+
+/* MODAL */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  position: relative;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  padding: 4rem 4rem 3rem;
+  max-width: 50rem;
+  width: 90%;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.3);
+}
+
+.modal__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  font-size: 3rem;
+  color: #888;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal__close:hover {
+  color: #333;
+}
+
+.modal__title {
+  font-size: 3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #c7365f;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.modal__rules {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-bottom: 3rem;
+  font-size: 1.6rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+.modal__rules li {
+  padding-left: 2rem;
+  position: relative;
+}
+
+.modal__rules li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #c7365f;
+}
+
+.modal__play {
+  position: static;
+  transform: none;
+  display: block;
+  margin: 0 auto;
+  font-size: 1.8rem;
+}
+
+.modal__play:active {
+  transform: translateY(3px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  body {
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0;
+  }
+
+  main {
+    width: 90%;
+    height: 75vh;
+    border-radius: 1.5rem 1.5rem 1.5rem 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: visible; /* allow children to spill out */
+  }
+
+  .player {
+    flex: none;
+    height: 50%;
+    width: 100%;
+    padding: 2rem 3rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* clip content within each section */
+  }
+
+  .player--0 {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+
+  .player--1 {
+    border-radius: 0 0 1.5rem 1.5rem;
+  }
+
+  .current {
+    width: 60%;
+  }
+
+  .score {
+    margin-bottom: 1rem;
+  }
+
+  /* New game button floats above main */
+  .btn--new {
+    top: -2.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Dice centered on the section divider (50% of main height) */
+  .dice {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    height: 8rem;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Roll left of dice, on the same horizontal line */
+  .btn--roll {
+    position: absolute;
+    top: 50%;
+    bottom: auto;
+    left: 17%;
+    transform: translate(-50%, -50%);
+    max-width: 17rem;
+  }
+
+  /* Hold right of dice, on the same horizontal line */
+  .btn--hold {
+    position: absolute;
+    top: 50%;
+    bottom: auto;
+    left: 83%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+
+  .name {
+    font-size: 3rem;
+  }
+
+  .score {
+    font-size: 6rem;
+  }
+
+  .player--winner .name {
+    font-size: 4rem;
+  }
 }
